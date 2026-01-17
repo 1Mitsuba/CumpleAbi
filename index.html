@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5e6d3 0%, #d4a574 50%, #ff9a56 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:  20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow:  0 20px 60px rgba(139, 69, 19, 0.3);
+            text-align: center;
+            position:  relative;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #8b4513;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(212, 165, 116, 0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #d2691e;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #6b4423;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #ffe4c4 0%, #ffd4a3 100%);
+            border-radius: 20px;
+            border-left: 5px solid #ff8c42;
+        }
+
+        .message p {
+            margin:  15px 0;
+        }
+
+        .highlight {
+            color: #ff8c42;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        . activities {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+            border-radius: 20px;
+            border:  3px dashed #d2691e;
+        }
+
+        .activities h2 {
+            color:  #8b4513;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .activity-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .activity-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 140, 66, 0.4);
+        }
+
+        .activity-item . emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: rotate 3s infinite ease-in-out;
+        }
+
+        @keyframes rotate {
+            0%, 100% {
+                transform:  rotate(0deg);
+            }
+            25% {
+                transform: rotate(-10deg);
+            }
+            75% {
+                transform: rotate(10deg);
+            }
+        }
+
+        .activity-item p {
+            color: #6b4423;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        . hearts {
+            font-size: 2em;
+            margin: 30px 0;
+            animation: pulse 1. 5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 1.3em;
+            color: #8b4513;
+            font-weight: bold;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff8c42;
+            position: fixed;
+            animation: fall 4s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff8c42 0%, #d2691e 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border-radius:  50px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.4);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.6);
+        }
+
+        . gaming-section {
+            background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+            color: white;
+            padding: 25px;
+            border-radius:  20px;
+            margin:  30px 0;
+        }
+
+        .gaming-section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎂 ¡FELIZ CUMPLEAÑOS!  🎉</h1>
+        <div class="subtitle">A mi mejor amiga que me soporta un montón</div>
+        
+        <div class="hearts">💕 💖 💕 💖 💕</div>
+        
+        <div class="message">
+            <p>Hoy es tu día especial y quiero que sepas que <span class="highlight">eres increíble</span>. 🌟</p>
+            <p>Gracias por aguantarme cuando soy <span class="highlight">insoportable</span> (que es casi siempre 😅).</p>
+            <p>Gracias por ser mi compañera de juegos, aunque te trate mal cuando perdemos...  🎮</p>
+            <p>¡Pero tú también me aguantas a mí y eso es lo que hace que nuestra amistad sea tan especial!  💝</p>
+        </div>
+
+        <div class="gaming-section">
+            <h3>🎮 MODO GAMING ACTIVADO 🎮</h3>
+            <p>Sí, sé que me pongo intensa cuando jugamos...  😤</p>
+            <p>¡Pero es porque quiero ganar contigo! (o culparte si perdemos 😂)</p>
+            <p>Gracias por seguir jugando conmigo a pesar de todo 🏆</p>
+        </div>
+
+        <div class="activities">
+            <h2>✨ Cosas que haremos cuando nos volvamos a ver ✨</h2>
+            <div class="activity-grid">
+                <div class="activity-item">
+                    <div class="emoji">🎮</div>
+                    <p>Jugar videojuegos (y tal vez discutir)</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🍕</div>
+                    <p>Comer pizza juntas</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🎬</div>
+                    <p>Maratón de películas</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🛍️</div>
+                    <p>Ir de compras</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">☕</div>
+                    <p>Tomar café y chismear</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🎤</div>
+                    <p>Karaoke a todo volumen</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🌮</div>
+                    <p>Probar nuevos restaurantes</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🎨</div>
+                    <p>Hacer algo creativo</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">📸</div>
+                    <p>Tomar mil selfies</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🎪</div>
+                    <p>Salir de aventura</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">🍰</div>
+                    <p>Comer pastel hasta explotar</p>
+                </div>
+                <div class="activity-item">
+                    <div class="emoji">💃</div>
+                    <p>Bailar como locas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="message">
+            <p>Eres más que una amiga, eres mi <span class="highlight">cómplice</span>, mi <span class="highlight">confidente</span> y mi <span class="highlight">compañera de locuras</span>. 🌈</p>
+            <p>Espero que este año te traiga todo lo que deseas y más.  🎁</p>
+            <p><span class="highlight">¡QUE CUMPLAS MUCHÍSIMOS MÁS! </span> 🎊</p>
+        </div>
+
+        <button onclick="celebrate()">🎉 ¡CELEBRAR! 🎉</button>
+
+        <div class="footer">
+            Con mucho cariño (aunque no lo parezca) 💕<br>
+            Tu amiga que te quiere un montón 🥰
+        </div>
+    </div>
+
+    <script>
+        // Crear confetti
+        function createConfetti() {
+            const colors = ['#ff8c42', '#d2691e', '#8b4513', '#ffa500', '#cd853f'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti. className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti. style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math. random() * 2 + 's';
+                    confetti. style.opacity = Math.random();
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+        }
+
+        function celebrate() {
+            createConfetti();
+            alert('🎉🎂 ¡FELIZ CUMPLEAÑOS! 🎂🎉\n\n¡Eres la mejor amiga del mundo!\n💕💖💕');
+        }
+
+        // Confetti automático al cargar la página
+        window.addEventListener('load', () => {
+            setTimeout(createConfetti, 500);
+        });
+
+        // Agregar animación a los items al hacer hover
+        const items = document.querySelectorAll('.activity-item');
+        items.forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.background = '#ffe4c4';
+                setTimeout(() => {
+                    this.style.background = 'white';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
