@@ -100,7 +100,7 @@ body {
 }
 
 .activity-card {
-    background: linear-gradient(145deg, #FFFFFF 0%, #FFF5E6 100%);
+    background: var(--card-gradient);
     border-radius: 20px;
     padding: 25px;
     text-align: center;
